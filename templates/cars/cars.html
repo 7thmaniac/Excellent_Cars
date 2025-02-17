@@ -116,55 +116,45 @@
                         <!-- Advanced search start -->
                         <div class="widget advanced-search2">
                             <h3 class="sidebar-title">Search your desire car</h3>
-                            <form method="GET">
+                            <form action="{% url 'search' %}" method="GET">
                                 <div class="form-group">
-                                    <select class="selectpicker search-fields" name="brand">
-                                        <option>Brand</option>
-                                        <option>Any</option>
-                                        <option>New</option>
-                                        <option>Semi-New</option>
-                                        <option>Damaged</option>
-                                        <option>Used</option>
+                                    <select class="selectpicker search-fields" name="select-brand">
+                                        <option selected="true" disabled="disabled">Brand</option>
+                                        {% for brand in brand_search %}
+                                            <option value="{{ brand }}">{{ brand }}</option>
+                                        {% endfor %}                                       
                                     </select>
                                 </div>
                                 <div class="form-group">
-                                    <select class="selectpicker search-fields" name="location">
-                                        <option>Location</option>
-                                        <option>United States</option>
-                                        <option>United Kingdom</option>
-                                        <option>American Samoa</option>
-                                        <option>Belgium</option>
-                                        <option>Cameroon</option>
-                                        <option>Canada</option>
+                                    <select class="selectpicker search-fields" name="select-location">
+                                        <option selected="true" disabled="disabled">Location</option>
+                                        {% for city in city_search %}
+                                            <option value={{ city }}>{{ city }}</option>
+                                        {% endfor %}
                                     </select>
                                 </div>
                                 <div class="form-group">
-                                    <select class="selectpicker search-fields" name="year">
-                                        <option>Year</option>
-                                        <option>2016</option>
-                                        <option>2017</option>
-                                        <option>2018</option>
-                                        <option>2019</option>
-                                        <option>2020</option>
+                                    <select class="selectpicker search-fields" name="select-year">
+                                        <option selected="true" disabled="disabled">Year</option>
+                                        {% for Year in Year_search %}
+                                            <option value="{{ Year }}">{{ Year }}</option>
+                                        {% endfor%}    
                                     </select>
                                 </div>
                                 <div class="form-group">
-                                    <select class="selectpicker search-fields" name="category">
-                                        <option>Category</option>
-                                        <option>Luxury Car</option>
-                                        <option>Pickup Truck</option>
-                                        <option>Minivan</option>
-                                        <option>Truck</option>
-                                        <option>Sports Car</option>
-                                        <option>Wagon</option>
+                                    <select class="selectpicker search-fields" name="select-type">
+                                        <option selected="true" disabled="disabled">Body style</option>
+                                        {% for body_style in body_style_search %}
+                                            <option value="{{ body_style }}">{{body_style}}</option>
+                                        {% endfor %}
                                     </select>
                                 </div>
                                 <div class="form-group">
                                     <select class="selectpicker search-fields" name="transmission">
-                                        <option>Transmission</option>
-                                        <option>Automatic</option>
-                                        <option>Manual</option>
-                                        <option>Tiptronic</option>
+                                        <option selected="True" disabled="disabled">Transmission</option>
+                                        {% for transmission in transmission_search %}
+                                            <option value="{{ transmission }}">{{ transmission }}</option>
+                                        {% endfor %}
                                     </select>
                                 </div>
                                 <div class="range-slider clearfix">
