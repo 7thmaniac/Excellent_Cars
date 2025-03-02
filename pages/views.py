@@ -37,3 +37,12 @@ def contact(request):
 
 def services(request):
     return render(request, 'pages/services.html' )
+
+def privacy_policy(request):
+    return render(request, 'pages/privacy_policy.html')
+
+def terms_of_use(request):
+    return render(request, 'pages/terms_of_use.html')
+
+def data_deletion(request):
+    return render(request, 'pages/data_deletion.html')

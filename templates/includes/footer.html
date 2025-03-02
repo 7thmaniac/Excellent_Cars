@@ -4,7 +4,12 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-8">
-                    <p class="copy">{% now 'Y' %} <a href="{% url 'index' %}">Carzone Corp.</a> All Rights Reserved.</p>
+                    <p class="copy">
+                        {% now 'Y' %} <a href="{% url 'index' %}">Carzone Corp.</a> All Rights Reserved. |
+                        <a href="{% url 'privacy_policy' %}">Privacy Policy</a> |
+                        <a href="{% url 'terms_of_use' %}">Terms of Use</a> |
+                        <a href="{% url 'data_deletion' %}">Data Deletion</a>
+                    </p>
                 </div>
                 <div class="col-lg-4">
                     <div class="social-list-2">

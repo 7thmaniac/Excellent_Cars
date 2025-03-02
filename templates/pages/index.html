@@ -1,5 +1,9 @@
 {% extends 'base.html' %}
 
+{% block title %}
+    | Home
+{% endblock %}
+
 {% load humanize %}
 
 <!-- Banner start -->
@@ -39,7 +43,9 @@
         </div>
         <!-- Search box 3 start -->
         <div class="search-box-4 sb-8">
+            {% include 'includes/messages.html' %}
             <form action="{% url 'search' %}" method="">
+                {% csrf_token %}
                 <div class="form-group">
                     <input type="text" name="keyword" placeholder="Search by name" class="form-control">
                 </div>

@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    | Data Deletion Instructions
+{% endblock %}
+
+{% block content %}
+
+<div class="sub-banner overview-bgi">
+    <div class="container breadcrumb-area">
+        <div class="breadcrumb-areas">
+            <h1>Data Deletion Instructions</h1>
+            <ul class="breadcrumbs">
+                <li><a href="{% url 'index' %}">Home</a></li>
+                <li class="active">Username</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<h1>Data Deletion Instructions</h1>
+<p>If you wish to delete your personal data, follow these steps:</p>
+<ol>
+    <li>Email us at <a href="mailto:contact@excellent_cars.com">contact@excellent_cars.com</a> with the subject "Data Deletion Request".</li>
+    <li>Provide your registered email and name for verification.</li>
+    <li>We will process your request within 7 business days.</li>
+</ol>
+{% endblock %}
