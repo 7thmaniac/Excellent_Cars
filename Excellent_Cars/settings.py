@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 
 from pathlib import Path
 import os
+import dj_database_url
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -26,7 +27,7 @@ print(BASE_DIR)
 SECRET_KEY = 'django-insecure-z5+yy+w&!u8jh4sh_w90ib49^u6p-@ai@r4apifytkcgv3!ykg'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = []
 
@@ -67,6 +68,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'allauth.account.middleware.AccountMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 ROOT_URLCONF = 'Excellent_Cars.urls'
@@ -98,14 +100,15 @@ DATABASES = {
     #     'ENGINE': 'django.db.backends.sqlite3',
     #     'NAME': BASE_DIR / 'db.sqlite3',
     # }
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'Excellent_Cars_db',
-        'USER': 'postgres',
-        'PASSWORD': 'Ragnarok&7777',
-        'HOST': 'localhost',
-        'PORT': '5432',
-    }
+    # 'default': {
+    #     'ENGINE': 'django.db.backends.postgresql',
+    #     'NAME': 'Excellent_Cars_db',
+    #     'USER': 'postgres',
+    #     'PASSWORD': 'Ragnarok&7777',
+    #     'HOST': 'localhost',
+    #     'PORT': '5432',
+    # }
+    'default': dj_database_url.config(default='postgres://postgres:Ragnarok&7777@localhost/Excellent_Cars_db')
 }
 
 
@@ -297,4 +300,8 @@ EMAIL_PORT = 587
 EMAIL_HOST_USER = 'sasankvaranasi7@gmail.com'
 EMAIL_HOST_PASSWORD = 'zziu ypuu gcxk ukxr'
 EMAIL_USE_TLS = True
+
+
+# Whitenoise Settings
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
